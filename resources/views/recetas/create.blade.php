@@ -69,7 +69,51 @@
                         type="hidden" 
                         name="preparacion"
                         value="{{ old('preparacion') }}">
-                    <trix-editor input="preparacion"></trix-editor>
+                    <trix-editor 
+                        class="form-control @error('preparacion') is-invalid @enderror" 
+                        input="preparacion"
+                    ></trix-editor>
+
+                    @error('preparacion')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="ingredientes"> Ingredientes</label>
+
+                    <input id="ingredientes" 
+                        type="hidden" 
+                        name="ingredientes"
+                        value="{{ old('ingredientes') }}">
+                    <trix-editor 
+                        class="form-control @error('ingredientes') is-invalid @enderror" 
+                        input="ingredientes"
+                    ></trix-editor>
+                    @error('ingredientes')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="imagen"> Agregar Imagen</label>
+                    
+                    <input 
+                        type="file" 
+                        id="imagen"
+                        class="form-control @error('imagen') is-invalid @enderror"
+                        name="imagen"
+                    >
+                    @error('imagen')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">

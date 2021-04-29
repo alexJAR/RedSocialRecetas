@@ -1,6 +1,9 @@
 body{
     font-family: $parrafos-font-family;
 }
+trix-editor {
+    min-height: 400px
+}
 
 .bg-primary .navbar-brand {
     color: white;
