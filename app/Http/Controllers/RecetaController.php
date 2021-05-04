@@ -110,7 +110,10 @@ class RecetaController extends Controller
      */
     public function show(Receta $receta)
     {
-        //
+        //Algunos metodos para obtener una receta
+        //$receta = Receta::find($receta);
+
+        return view('recetas.show', compact('receta'));
     }
 
     /**
