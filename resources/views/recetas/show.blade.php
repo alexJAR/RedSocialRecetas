@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <h1>{{ $receta}}</h1>
+    <!--<h1>{{ $receta}}</h1>-->
 
     <article class="contenido-receta">
         <h1 class="text-center mb-4">{{$receta->titulo}}</h1>
@@ -14,7 +14,7 @@
 
         <div class="receta-meta mt-2">
             <p>
-                <span class="font-weight-bold text-primary">Escrito ennnnn:</span>
+                <span class="font-weight-bold text-primary">Escrito en:</span>
                 {{$receta->categoria->nombre}}
             </p>
 
