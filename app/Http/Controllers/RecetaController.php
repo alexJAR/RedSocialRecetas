@@ -25,7 +25,11 @@ class RecetaController extends Controller
      */
     public function index()
     {
+        //Mostrar la receta del usuario actual
         $recetas = auth()->user()->recetas;
+
+        //Todas las recetas
+        //$recetas = Receta::all();
         return view('recetas.index')->with('recetas', $recetas);
     }
 
@@ -141,6 +145,10 @@ class RecetaController extends Controller
         //
       //  return $receta;
 
+      //revisar el policy
+
+        $this->authorize('update', $receta);
+
         $data = request()->validate([
             'titulo' => 'required|min:6',
             'preparacion' => 'required',
@@ -181,6 +189,12 @@ class RecetaController extends Controller
      */
     public function destroy(Receta $receta)
     {
-        //
+        // ejecutar el policy
+        $this->authorize('delete', $receta);
+
+        //eliminamos la receta
+        $receta->delete();
+
+        return redirect()->action('RecetaController@index');
     }
 }
