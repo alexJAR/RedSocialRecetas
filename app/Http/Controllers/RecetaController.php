@@ -27,10 +27,11 @@ class RecetaController extends Controller
     {
         //Mostrar la receta del usuario actual
         $recetas = auth()->user()->recetas;
+        //$usuario = auth()->user();
 
         //Todas las recetas
         //$recetas = Receta::all();
-        return view('recetas.index')->with('recetas', $recetas);
+        return view('recetas.index')->with('recetas', $recetas);//->with('usuario', $usuario);
     }
 
     /**
