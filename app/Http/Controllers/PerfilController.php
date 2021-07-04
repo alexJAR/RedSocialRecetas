@@ -47,6 +47,7 @@ class PerfilController extends Controller
     public function show(Perfil $perfil)
     {
         //
+        return view('perfiles.show', compact('perfil'));
     }
 
     /**
@@ -58,6 +59,7 @@ class PerfilController extends Controller
     public function edit(Perfil $perfil)
     {
         //
+        return view('perfiles.edit', compact('perfil'));
     }
 
     /**
