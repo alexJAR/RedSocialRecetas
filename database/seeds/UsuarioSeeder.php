@@ -20,7 +20,7 @@ class UsuarioSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'url' => 'https://misitio-ar.netlify.app/',
         ]);
-        $user->perfil()->create();
+        //$user->perfil()->create();
 
         $user2 = User::create([
             'name' => 'Jair',
@@ -28,7 +28,7 @@ class UsuarioSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'url' => 'https://misitio-ar.netlify.app/',
         ]);
-        $user2->perfil()->create();
+        //$user2->perfil()->create();
 
 
         /*DB::table('users')->insert([
