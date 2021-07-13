@@ -26,8 +26,10 @@ class RecetaController extends Controller
     public function index()
     {
         //Mostrar la receta del usuario actual
-        $recetas = auth()->user()->recetas;
-        //$usuario = auth()->user();
+        //$recetas = auth()->user()->recetas->paginate(5);
+        $usuario = auth()->user()->id;
+        //Recetas con paginacion
+        $recetas = Receta::where('user_id', $usuario)->paginate(5);
 
         //Todas las recetas
         //$recetas = Receta::all();
@@ -129,7 +131,8 @@ class RecetaController extends Controller
      */
     public function edit(Receta $receta)
     {
-        //
+        //Policy para que no vean la vista
+        $this->authorize('view', $receta);
         $categorias = CategoriaReceta::all(['id', 'nombre']);
         return view('recetas.edit', compact('categorias', 'receta'));
     }

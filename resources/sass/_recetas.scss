@@ -2,7 +2,8 @@ body{
     font-family: $parrafos-font-family;
 }
 trix-editor {
-    min-height: 400px
+    min-height: 400px;
+    height: auto!important;
 }
 
 .bg-primary .navbar-brand {
