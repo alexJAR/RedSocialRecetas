@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'InicioController@index')->name('inicio.index');
 
 //Route::get('/recetas', 'RecetaController');
 
@@ -35,6 +33,9 @@ Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show')
 Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
 Route::put('/perfiles/{perfil}', 'PerfilController@update')->name('perfiles.update');
 
+
+//Almacena los likes de las recetas
+Route::post('/recetas/{receta}', 'LikesController@update')->name('likes.update');
 
 Auth::routes();
 

@@ -5,6 +5,7 @@
  */
 import 'sweetalert2/dist/sweetalert2.min.css';//Importa los estilos de sweetalert
 import VuewSweetAler2 from 'vue-sweetalert2';
+import 'owl.carousel';
 
 require('./bootstrap');
 
@@ -27,6 +28,7 @@ Vue.use(VuewSweetAler2);//asi se agregan plugins
 Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('fecha-receta', require('./components/FechaReceta.vue').default);
 Vue.component('eliminar-receta', require('./components/EliminarReceta.vue').default);
+Vue.component('like-button', require('./components/LikeButton.vue').default);
 
 
 console.log(Vue.prototype);
@@ -38,4 +40,26 @@ console.log(Vue.prototype);
 
 const app = new Vue({
     el: '#app',
+});
+
+/* Carousel con OWL */
+
+jQuery(document).ready(function() {
+    jQuery('.owl-carousel').owlCarousel({
+        margin:10,
+        loop: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        responsive:{
+            0 : {
+                items: 1
+            },
+            600 : {
+                items: 2
+            },
+            1000 : {
+                items: 3
+            }
+        }
+    });
 });
