@@ -11063,20 +11063,17 @@ trix-editor {
   transform: translateX(0);
 }
 
-/*
 .hero-categorias {
-    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.4), rgba(53, 53, 53, 0.571)),
-url('../images/bgimagen.jpg');
-    height:30rem;
-    background-size: cover;
-    background-position: top center;
-    .texto-buscar {
-        p {
-            font-size: 1.4rem;
-            color: #FFF;
-        }
-    }
-}*/
+  background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.4), rgba(53, 53, 53, 0.571)), url(/images/bgimagen.jpg?871145cd0e3ea995c42306a5378de821);
+  height: 30rem;
+  background-size: cover;
+  background-position: top center;
+}
+
+.hero-categorias .texto-buscar p {
+  font-size: 1.4rem;
+  color: #FFF;
+}
 
 .like-btn {
   display: inline-block;

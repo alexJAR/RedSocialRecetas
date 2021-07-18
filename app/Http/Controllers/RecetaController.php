@@ -14,7 +14,7 @@ class RecetaController extends Controller
     /* Con esto no se puede acceder si no estas autenticado */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'show']);
+        $this->middleware('auth', ['except' => ['show', 'search']]);
     }
 
 
@@ -208,5 +208,21 @@ class RecetaController extends Controller
         $receta->delete();
 
         return redirect()->action('RecetaController@index');
+    }
+
+    public function search(Request $request)
+    {
+        $busqueda = $request['buscar']; //el campo es buscar porq en el input el name es buscar
+        /*Otra forma de hacerlo
+        $busqueda = $request->get('buscar');*/
+
+        //Esta consulta lo que haces es que busca en la tabla recetas en el campo titulo algo q tenga las palabras de la busqueda
+        // los simbolos % es para q al buscar puedas buscar cualquier coincidencia que tenga lo de nuestra busqueda en el titulo
+        //ejmplo: buscamos tacos, con los % nos puede trarer cualquier receta q en el titulo tenga taco como ricos tacos o receta de tacos dorados
+
+        $recetas = Receta::where('titulo', 'like', '%' . $busqueda . '%')->paginate(3);
+        $recetas->appends(['buscar' => $busqueda]);
+
+        return view('busquedas.show', compact('recetas', 'busqueda'));
     }
 }
