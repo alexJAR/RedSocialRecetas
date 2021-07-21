@@ -26,7 +26,12 @@ Route::get('/recetas/{receta}/edit', 'RecetaController@edit')->name('recetas.edi
 Route::put('/recetas/{receta}', 'RecetaController@update')->name('recetas.update');
 Route::delete('/recetas/{receta}', 'RecetaController@destroy')->name('recetas.destroy');
 
+
+Route::get('/categorias', 'CategoriasController@index')->name('categorias.index');
+Route::get('/categorias/create', 'CategoriasController@create')->name('categorias.create');
+Route::post('/categorias','CategoriasController@store')->name('categorias.store');
 Route::get('/categorias/{categoriaReceta}', 'CategoriasController@show')->name('categorias.show');
+
 
 /*Al ser un controller de tipo resource, se puede resumir todo lo de arriba en esta linea
 Route::resource('recetas', 'RecetaController');

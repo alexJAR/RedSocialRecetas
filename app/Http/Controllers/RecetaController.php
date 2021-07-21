@@ -210,6 +210,10 @@ class RecetaController extends Controller
         return redirect()->action('RecetaController@index');
     }
 
+    public function prueba(){
+        return "calis";
+    }
+
     public function search(Request $request)
     {
         $busqueda = $request['buscar']; //el campo es buscar porq en el input el name es buscar
